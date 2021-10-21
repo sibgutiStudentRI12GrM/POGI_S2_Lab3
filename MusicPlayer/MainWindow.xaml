@@ -1,0 +1,41 @@
+﻿<Window x:Class="MusicPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicPlayer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="450">
+    <Grid x:Name="Container" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="60"></ColumnDefinition>
+            <ColumnDefinition Width="*" MinWidth="60"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="20*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="Btn_PlayPause" Content="Play/Pause" Click="Btn_PlayPause_Click"></Button>
+        <Button x:Name="Btn_Stop" Grid.Column="1" Content="Stop" Click="Btn_Stop_Click" ></Button>
+        <Grid Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Btn_AddAudio" Grid.Column="0" Content="Add audio" Click="Btn_AddAudio_Click"></Button>
+            <Button x:Name="Btn_RemoveAudio" Grid.Column="1" Content="Remove current" IsEnabled="False" Click="Btn_RemoveAudio_Click" ></Button>
+        </Grid>
+        <Button Grid.Column="0" Grid.Row="1" x:Name="Btn_PlayPrevios" Content="Prev" Click="Btn_PlayPrevios_Click"></Button>
+        <Button Grid.Column="1" Grid.Row="1" x:Name="Btn_PlayNext" Content="Next" Click="Btn_PlayNext_Click"></Button>
+        <ComboBox Grid.Column="2" Grid.Row="1" x:Name="ComboBox_AudioPlaylist" VerticalContentAlignment="Center" FontSize="18" SelectionChanged="ComboBox_AudioPlaylist_SelectionChanged" ></ComboBox>
+        <Label Grid.Column="0" Grid.Row="2" x:Name="Label_CurrentTime" Content="0:00" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Grid.Column="1" Grid.Row="2" x:Name="Label_MaximumTime" Content="0:00" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Slider Grid.Column="2" Grid.Row="2" x:Name="Slider_Playback"  Thumb.DragCompleted="Slider_Playback_ValueChanged" VerticalAlignment="Center" Maximum="100" SmallChange="1" ></Slider>
+        <Slider Grid.Column="0" Grid.Row="3" x:Name="Slider_Volume"  Thumb.DragCompleted="Slider_Volume_ValueChanged" Orientation="Vertical" HorizontalAlignment="Center" Maximum="100" Minimum="0" Value="50" SmallChange="5"></Slider>
+        <CheckBox Grid.Column="1" Grid.Row="3" x:Name="CheckBox_RandomAudio" Content="Random" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
+        
+    </Grid>
+</Window>
